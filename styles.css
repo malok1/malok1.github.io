@@ -1,0 +1,43 @@
+.header img {
+  height: 300px;
+  width: 300px;
+}
+.header {
+  text-align: center;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: grey;
+}
+
+#name {
+  color: lightblue;
+}
+
+#title {
+  color: lightblue;
+}
+
+#date1 {
+  text-align: right;
+}
+
+#date2 {
+  text-align: right;
+}
+
+#date3 {
+  text-align: right;
+}
+
+.content {
+  width: 60%;
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+  background-color: grey;
+  color: white;
+  line-height: 1.2;
+}
