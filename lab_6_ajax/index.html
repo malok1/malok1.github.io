@@ -19,18 +19,23 @@
     function randomNumber(from, to) {
         return Math.floor(Math.random() * (to - from + 1)) + from;
       }
-
+      
     function loadData() {
       fetch('ajax_sample.json')
         .then(res => res.json())
         .then(codes => codes.map(c => c.name + ": " + c.code))
         .then(codes => {
-          for (let i = 0; i < 15; i++) {
-              range = randomNumber(0, 243);
-              codes[i] = "<li>" + codes[range] + "</li>";
-        }
-        mylist = codes.splice(1, 15, ",");
-        document.querySelector(".content").innerHTML = "<ol>" + mylist.join("") + "</ol>";
+          const listcountries = [];
+          i = 0;
+          while (i < 15) {
+            range = randomNumber(0, 243);
+            if (listcountries.includes(codes[range]) == false) { 
+              listcountries[i] = "<li>" + codes[range] + "</li>";
+              i++
+            }
+          }
+         
+        document.querySelector(".content").innerHTML = "<ol>" + listcountries.join("") + "</ol>";
         });
     }
  
