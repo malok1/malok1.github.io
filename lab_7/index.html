@@ -15,17 +15,34 @@
       <div class="footer"></div>
     </div>
   </div>
-  <script>
+  <script>  
     function loadData() {
-      fetch('ajax_sample.json')
+      fetch('https://api.umd.io/v0/bus/routes')
         .then(res => res.json())
         .then(res => {
-          // you can now work in this area
+          const routes = res.map((c) => c.title);
+          const content = document.querySelector('.content');
+          content.innerHTML = "";
 
+          for(let i = 0; i < routes.length; i ++){
+            let elem = document.createElement("li");
+            elem.innerText = routes[i];
+            content.appendChild(elem);
+          };
+          console.log(res);
           return res;
+
         })
-        .then(data => document.querySelector(".content").innerText = data);
-    }
+        .then(info => {
+          const heading = document.querySelector(".header");
+          info = info.find(pickid);
+          return heading.innerHTML = "UMD Bus Routes " + info.title;
+        });
+    };
+    function pickid(names){
+      return names.route_id === '111'
+    }  
+  
   </script>
 </body>
 
